@@ -1,0 +1,46 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+void insert(int array[],int n,int element,int t){
+    for(int i=n;i>t;i--){
+    array[i]=array[i-1];
+    }
+    array[t+1]=element;
+    n++;
+    
+    
+}
+int main() {
+    int n;
+    cin>>n;
+       
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int s;
+    cin>>s;
+    int temp=0;
+    for(int i=0;i<n;i++){
+         if(temp<arr[i]){
+            temp=arr[i];
+        }
+    }
+    int q=0;
+    for(int i=0;i<n;i++){
+        if(arr[i]==temp){
+            q=i;
+        }
+    }
+    insert(arr,n,s,q);
+    for(int i=0;i<n+1;i++){
+        cout<<arr[i]<<" ";
+    }   
+    
+    return 0;
+}
